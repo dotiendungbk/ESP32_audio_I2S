@@ -1,0 +1,7 @@
+1. Different I2S clock sources. In this case, the CC8530 should be the I2S clock master, while the audio DAC should be the I2S clock slave. This way the I2S clock will be synchronized
+
+2. The size of the DMA buffer for the I2S. Obviously the size of the I2S receiving and transmitting buffers should be the same size and big enough to hold the audio receiving frame. The actual size should be as following: 
+
+100(ms)*441(samples per ms)*2 (16-bit word per sample) = 88,200 word (notice here the frame length is 100ms because the 44.1Khz sampling rate)
+
+3. The DMA mode and buffer size for the I2S. In this case, the DMA with Ping-Pong buffer mode should be used, the one half of the Ping-Pong buffer will be for receiving buffer and the other half should be used as the transmitting/processing buffer. It will prevent the data loss. Notice there, the size for the Ping-Pong buffer should be 2 times of the size of the receiving buffer stated in item 2.

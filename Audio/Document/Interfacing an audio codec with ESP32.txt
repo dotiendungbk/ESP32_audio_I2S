@@ -1,0 +1,1 @@
+http://iot-bits.com/interfacing-an-audio-codec-with-esp32/
