@@ -5,3 +5,4 @@
 100(ms)*441(samples per ms)*2 (16-bit word per sample) = 88,200 word (notice here the frame length is 100ms because the 44.1Khz sampling rate)
 
 3. The DMA mode and buffer size for the I2S. In this case, the DMA with Ping-Pong buffer mode should be used, the one half of the Ping-Pong buffer will be for receiving buffer and the other half should be used as the transmitting/processing buffer. It will prevent the data loss. Notice there, the size for the Ping-Pong buffer should be 2 times of the size of the receiving buffer stated in item 2.
+4. nothing.
